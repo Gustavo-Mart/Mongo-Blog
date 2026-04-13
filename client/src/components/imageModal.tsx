@@ -1,7 +1,7 @@
 export default function ImageModal(
   {imageUrl, onClickCancel}: {imageUrl?: string, onClickCancel: () => void}) {
   return (
-    <div className="inset-0 bg-black/40 fixed z-50 flex items-center justify-center select-none"
+    <div className="inset-0 bg-black/60 fixed z-50 flex items-center justify-center select-none"
       onClick={onClickCancel}>
       <div className=" ">
         <div
