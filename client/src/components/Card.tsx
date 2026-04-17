@@ -1,4 +1,4 @@
-import { type Item } from "../pages/Home"
+import type { Item } from "../components/types/Item"
 
 interface CardProps {
   item: Item
@@ -8,8 +8,8 @@ interface CardProps {
 
 export default function Card({ item, onDelete, onImageClick }: CardProps) {
   return (
-    <div key={item._id} className="relative flex flex-col text-indigo-50 bg-indigo-900 shadow-md bg-clip-border rounded-xl w-96">
-      <div className="relative grid h-fit mx-4 mt-4 overflow-hidden bg-indigo-100 bg-clip-border rounded-xl place-items-center">
+    <div key={item._id} className="relative flex flex-col text-text-main bg-card shadow-md bg-clip-border rounded-xl max-w-96">
+      <div className="relative grid max-h-88 mx-4 mt-4 overflow-hidden bg-text-secondary/20 bg-clip-border rounded-xl place-items-center">
         <img
           src={item.image}
           alt={item.name}
@@ -19,13 +19,13 @@ export default function Card({ item, onDelete, onImageClick }: CardProps) {
       </div>
       <div className="p-6">
         <h2 className='text-xl font-semibold mb-2'>{item.name}</h2>
-        <p className='text-base text-indigo-50'>{item.description}</p>
+        <p className='text-base text-text-secondary'>{item.description}</p>
       </div>
       <div className="p-6 pt-0 flex justify-between items-center">
         <span className='text-lg font-bold'>R${item.price.toFixed(2)}</span>
         <button
           onClick={() => onDelete(item._id)}
-          className='bg-red-500 text-white text-xs font-bold uppercase py-3 px-6 rounded-lg hover:bg-red-600 transition-all'
+          className='bg-danger hover:bg-danger-hover text-white text-xs font-bold uppercase py-3 px-6 rounded-lg transition-all'
         >
           Remover
         </button>

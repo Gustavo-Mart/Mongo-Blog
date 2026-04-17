@@ -4,16 +4,8 @@ import ConfirmModal from '../components/ConfirmModal'
 import ImageModal from '../components/imageModal'
 import Card from '../components/Card'
 import SkeletonCard from '../components/Skeleton'
-
-export interface Item {
-  _id: string
-  name: string
-  description: string
-  price: number
-  image: string
-}
-
-
+import LoadingSpinner from '../components/LoadingSpinner/Loading'
+import type { Item } from '../components/types/Item'
 
 export default function Home() {
   const [items, setItems] = useState<Item[]>([])
@@ -70,6 +62,7 @@ export default function Home() {
               }}
               onImageClick={(imageUrl) => {
                 setSelectedImage(imageUrl)
+                setSelectedId(item._id)
                 setShowModalImage(true)
               }}
             />
@@ -94,8 +87,12 @@ export default function Home() {
             setShowModalImage(false)
             setSelectedImage(null)
           }}
+          item={items.find(item => item._id === selectedId) ?? null}
         />
       )}
+
+      <LoadingSpinner />
+
     </div>
   )
 }

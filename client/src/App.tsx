@@ -6,7 +6,7 @@ import './App.css'
 
 export default function App() {
   return (
-    <div className='flex flex-col items-center min-h-screen bg-indigo-500 pt-16'>
+    <div className='flex flex-col items-center min-h-screen bg-background pt-16'>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />
